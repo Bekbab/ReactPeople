@@ -20,19 +20,22 @@ namespace ReactPeople
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine($"{name}:");
                 Console.ForegroundColor = ConsoleColor.White;
-                Console.Write($"{dogReaction}");
+                Console.Write($" {dogReaction}");
             }
             else if (animal == "cat")
             {
-                Console.WriteLine($"{name} saw the {animal}.");
+                Console.WriteLine($"{name} swam up to the aquarium glass and noticed the {animal}.");
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine($"{name}:");
                 Console.ForegroundColor = ConsoleColor.White;
-                Console.Write($"{catReaction}");
+                Console.Write($" {catReaction}");
             }
             else
             {
-                Console.WriteLine("glub glub (try again)");
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine($"{name}:");
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.Write(" glub glub (try again)");
             }
         }
     }

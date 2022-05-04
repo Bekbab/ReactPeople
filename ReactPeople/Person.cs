@@ -41,7 +41,7 @@ namespace ReactPeople
             if (animal == "Dog")
             {
                 Console.WriteLine($"{name} saw the {animal}.");
-                Console.ForegroundColor = ConsoleColor.Red;
+                Console.ForegroundColor = ConsoleColor.Magenta;
                 Console.WriteLine($"{name}:");
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.Write($"{dogReaction}");
@@ -49,7 +49,7 @@ namespace ReactPeople
             else if (animal == "Cat")
             {
                 Console.WriteLine($"{name} saw the {animal}.");
-                Console.ForegroundColor = ConsoleColor.Red;
+                Console.ForegroundColor = ConsoleColor.Magenta;
                 Console.WriteLine($"{name}:");
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.Write($"{catReaction}");

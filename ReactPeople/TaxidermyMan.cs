@@ -8,9 +8,35 @@ namespace ReactPeople
         {
             name = "The Taxidermy Man";
             preference = "taxidermy";
-            dogReaction = "Ew I hate dogs. Get away you dumb, smelly, floor shitting, mutt!";
-            catReaction = "Oh I love cats! Come here kitty, kitty, kitty.";
-            wakeMessage = $"{name} the {preference} person tore the fabric of spacetime and sewed it into a coat.";
+            dogReaction = "Oh a dog, what a fine specimen for my collection.";
+            catReaction = "Oh a cat, it would look great in my living room.";
+            wakeMessage = $"{name} tore the fabric of reality and sewed it into a coat.";
+        }
+        public override void React(string animal)
+        {
+            if (animal == "dog")
+            {
+                Console.WriteLine($"{name} noticed the {animal} and took on his 'work gloves'.");
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine($"{name}:");
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.Write($" {dogReaction}");
+            }
+            else if (animal == "cat")
+            {
+                Console.WriteLine($"{name} noticed the {animal} and took on his 'work gloves'.");
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine($"{name}:");
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.Write($" {catReaction}");
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine($"{name}:");
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine(" That animal is too exotic, even for me.");
+            }
         }
     }
 }
