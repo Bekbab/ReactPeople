@@ -7,7 +7,7 @@ namespace ReactPeople
         public DogPerson()
         {
             preference = "dog";
-            name = firstNames[generator.Next(4, 7)] + LastNames[generator.Next(3, 5)];
+            name = firstNames[generator.Next(3, 6)] + LastNames[generator.Next(2, 4)];
             dogReaction = "Oh I love dogs! Who's a good boy?!";
             catReaction = "Ew I hate cats. Get away you butthole licking, carpet puking, creature!";
             wakeMessage = $"{name} the {preference} person entered existence!";

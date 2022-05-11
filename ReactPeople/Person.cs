@@ -6,7 +6,7 @@ namespace ReactPeople
     public class Person
     {
 
-        protected string preference;
+        public string preference;
 
         protected string dogReaction;
 

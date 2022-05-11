@@ -11,6 +11,7 @@ namespace ReactPeople
             catReaction = "*agitated bubbling*";
             wakeMessage = $"{name} the {preference} fishperson swam into existence!";
         }
+        
 
         public override void React(string animal)
         {
@@ -35,7 +36,7 @@ namespace ReactPeople
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine($"{name}:");
                 Console.ForegroundColor = ConsoleColor.White;
-                Console.Write(" glub glub (try again)");
+                Console.Write(" Glub glub (try again)");
             }
         }
     }
