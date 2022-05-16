@@ -4,10 +4,15 @@ namespace ReactPeople
 {
     class Program
     {
-        ReactionWizard wiz = new ReactionWizard();
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            ReactionWizard wiz = new ReactionWizard();
+            bool gameIsRunning = true;
+
+            while (gameIsRunning)
+            {
+                wiz.Update();
+            }
         }
     }
 }

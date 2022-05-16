@@ -11,32 +11,32 @@ namespace ReactPeople
             catReaction = "*agitated bubbling*";
             wakeMessage = $"{name} the {preference} fishperson swam into existence!";
         }
-        
+
 
         public override void React(string animal)
         {
-            if (animal == "dog")
+            if (animal == "dog" || animal == "Dog")
             {
                 Console.WriteLine($"{name} swam up to the aquarium glass and noticed the {animal}.");
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"{name}:");
+                Console.Write($"{name}:");
+                Console.WriteLine($" {dogReaction}");
                 Console.ForegroundColor = ConsoleColor.White;
-                Console.Write($" {dogReaction}");
             }
-            else if (animal == "cat")
+            else if (animal == "cat" || animal == "Cat")
             {
                 Console.WriteLine($"{name} swam up to the aquarium glass and noticed the {animal}.");
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"{name}:");
+                Console.Write($"{name}:");
+                Console.WriteLine($" {catReaction}");
                 Console.ForegroundColor = ConsoleColor.White;
-                Console.Write($" {catReaction}");
             }
             else
             {
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"{name}:");
+                Console.Write($"{name}:");
+                Console.WriteLine(" Glub glub (try again)");
                 Console.ForegroundColor = ConsoleColor.White;
-                Console.Write(" Glub glub (try again)");
             }
         }
     }

@@ -14,28 +14,28 @@ namespace ReactPeople
         }
         public override void React(string animal)
         {
-            if (animal == "dog")
+            if (animal == "dog" || animal == "Dog")
             {
                 Console.WriteLine($"{name} noticed the {animal} and took on his 'work gloves'.");
                 Console.ForegroundColor = ConsoleColor.DarkRed;
-                Console.WriteLine($"{name}:");
+                Console.Write($"{name}:");
+                Console.WriteLine($" {dogReaction}");
                 Console.ForegroundColor = ConsoleColor.White;
-                Console.Write($" {dogReaction}");
             }
-            else if (animal == "cat")
+            else if (animal == "cat" || animal == "Cat")
             {
                 Console.WriteLine($"{name} noticed the {animal} and took on his 'work gloves'.");
                 Console.ForegroundColor = ConsoleColor.DarkRed;
-                Console.WriteLine($"{name}:");
+                Console.Write($"{name}:");
+                Console.WriteLine($" {catReaction}");
                 Console.ForegroundColor = ConsoleColor.White;
-                Console.Write($" {catReaction}");
             }
             else
             {
                 Console.ForegroundColor = ConsoleColor.DarkRed;
-                Console.WriteLine($"{name}:");
-                Console.ForegroundColor = ConsoleColor.White;
+                Console.Write($"{name}:");
                 Console.WriteLine(" That animal is too exotic, even for me.");
+                Console.ForegroundColor = ConsoleColor.White;
             }
         }
     }

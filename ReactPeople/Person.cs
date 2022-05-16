@@ -38,21 +38,21 @@ namespace ReactPeople
 
         public virtual void React(string animal)
         {
-            if (animal == "Dog")
+            if (animal == "dog" || animal == "Dog")
             {
                 Console.WriteLine($"{name} saw the {animal}.");
                 Console.ForegroundColor = ConsoleColor.Magenta;
-                Console.WriteLine($"{name}:");
+                Console.Write($"{name}:");
+                Console.WriteLine($" {dogReaction}");
                 Console.ForegroundColor = ConsoleColor.White;
-                Console.Write($"{dogReaction}");
             }
-            else if (animal == "Cat")
+            else if (animal == "cat" || animal == "Cat")
             {
                 Console.WriteLine($"{name} saw the {animal}.");
                 Console.ForegroundColor = ConsoleColor.Magenta;
-                Console.WriteLine($"{name}:");
+                Console.Write($"{name}:");
+                Console.WriteLine($" {catReaction}");
                 Console.ForegroundColor = ConsoleColor.White;
-                Console.Write($"{catReaction}");
             }
             else
             {

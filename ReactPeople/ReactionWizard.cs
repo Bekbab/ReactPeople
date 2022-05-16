@@ -8,11 +8,15 @@ namespace ReactPeople
 
         int personID;
 
-        bool isPersonSpawned;
+        string pickedID;
+
+        bool isPersonPicked;
 
         string doString;
 
         bool choosing;
+
+
 
         List<Person> people = new List<Person>();
 
@@ -38,24 +42,49 @@ namespace ReactPeople
             {
                 people.Add(new TaxidermyMan());
             }
+
+            choosing = true;
         }
 
         public void PickPerson()
         {
-            personID = wizGen.Next(1, 101);
-            isPersonSpawned = true;
+            personID = wizGen.Next(0, 100);
+            isPersonPicked = true;
+            Console.WriteLine("You successfully picked this person:");
+            Console.WriteLine($"ID: {personID}, Name: {people[personID].name}, Preference: {people[personID].preference}");
             Console.WriteLine(people[personID].wakeMessage);
+            Console.WriteLine("Press enter to continue.");
+            Console.ReadLine();
 
         }
         public void PickSpecific()
         {
-            Console.WriteLine("Press enter to see your options, then type the number of the person you want to pick.");
+            Console.WriteLine("Press enter to see your options, then type the ID of the person you want to pick.");
             Console.ReadLine();
             for (int i = 0; i < people.Count; i++)
             {
-                Console.WriteLine($"{i}: {people[i].name}, Preference: {people[i].preference}");
+                Console.WriteLine($"ID:{i}, Name:{people[i].name}, Preference: {people[i].preference}");
             }
-            //lös av
+            Console.WriteLine("Type your persons ID.");
+            pickedID = Console.ReadLine();
+            bool isNumeric = int.TryParse(pickedID, out personID);
+
+            if (isNumeric && (0 <= personID && personID <= 99))
+            {
+                Console.WriteLine("You successfully picked this person:");
+                Console.WriteLine($"ID: {personID}, Name: {people[personID].name}, Preference: {people[personID].preference}");
+                Console.WriteLine(people[personID].wakeMessage);
+                isPersonPicked = true;
+            }
+            else
+            {
+                Console.WriteLine("Something went wrong, try again.");
+                choosing = true;
+            }
+
+            Console.WriteLine("Press enter to continue.");
+            Console.ReadLine();
+
         }
 
 
@@ -83,14 +112,18 @@ namespace ReactPeople
             {
                 people.Add(new TaxidermyMan());
             }
+
+            isPersonPicked = false;
             Console.WriteLine("You reset the list.");
+            Console.WriteLine("Press enter to continue.");
+            Console.ReadLine();
         }
 
-        public void Choose()
+        public void FirstChoice()
         {
-
-            if (choosing == true)
+            if (choosing)
             {
+                isPersonPicked = false;
                 Console.WriteLine("What do you want to do?");
                 Console.WriteLine("S: Pick a random character");
                 Console.WriteLine("R: Reset the character list");
@@ -115,13 +148,69 @@ namespace ReactPeople
             else
             {
                 Console.WriteLine("Something went wrong, try again.");
+                Console.WriteLine("Press enter to continue.");
+                Console.ReadLine();
+                choosing = true;
+            }
+        }
+        public void SecondChoice()
+        {
+            if (choosing)
+            {
+                Console.WriteLine("What do you want to do?");
+                Console.WriteLine("I: Inroduce your person to an animal.");
+                Console.WriteLine("R: Reset the character list.");
+                Console.WriteLine("RP: Reset your choice of person.");
+                doString = Console.ReadLine();
+                choosing = false;
+            }
+
+            if (doString == "I" || doString == "i")
+            {
+                Introduce();
+                choosing = true;
+            }
+            else if (doString == "R" || doString == "r")
+            {
+                ResetList();
+                choosing = false;
+            }
+            else if (doString == "RP" || doString == "rp")
+            {
+                isPersonPicked = false;
+                choosing = false;
+                Console.WriteLine("You reset your choice of person.");
+            }
+            else
+            {
+                Console.WriteLine("Something went wrong, try again.");
+                Console.WriteLine("Press enter to continue.");
+                Console.ReadLine();
                 choosing = true;
             }
         }
 
         public void Introduce()
         {
-            Console.WriteLine("Introduce ")
+            Console.WriteLine($"Introduce {people[personID].name} to an animal.");
+            Console.WriteLine("Cat or dog?");
+            people[personID].React(Console.ReadLine());
+            Console.WriteLine("Press enter to continue.");
+            Console.ReadLine();
+        }
+
+        public void Update()
+        {
+            if (isPersonPicked)
+            {
+                choosing = true;
+                SecondChoice();
+            }
+            else if (!isPersonPicked)
+            {
+                choosing = true;
+                FirstChoice();
+            }
         }
 
 
