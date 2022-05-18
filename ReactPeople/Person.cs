@@ -24,7 +24,7 @@ namespace ReactPeople
             "Margareth"
         };
 
-        protected List<string> LastNames = new List<string>()
+        protected List<string> lastNames = new List<string>()
         {
             "Jones",
             "Smith",
